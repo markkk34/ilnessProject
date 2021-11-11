@@ -9,7 +9,7 @@ const Navigation = () =>
                 <NavLink to='/profile'>Profile</NavLink>
             </div>
             <div>
-                <NavLink to='/message'>Message</NavLink>
+                <NavLink to='/chat'>Chat</NavLink>
             </div>
             <div>
                 <NavLink to='/news'>News</NavLink>

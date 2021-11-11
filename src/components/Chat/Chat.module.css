@@ -1,0 +1,12 @@
+.chat {
+    display: flex;
+    flex-direction: row;
+}
+
+.dialogues {
+    width: 20%;
+}
+
+.messages {
+    width: 80%;
+}

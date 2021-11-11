@@ -1,0 +1,8 @@
+.dialogueItem {
+    margin-top: 20px;
+    background-color: cornflowerblue;
+}
+
+.dialogueItem:first-child {
+    margin-top: 0;
+}
