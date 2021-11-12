@@ -10,7 +10,7 @@ import {BrowserRouter, Route, Routes,} from "react-router-dom";
 import Chat from "./components/Chat/Chat";
 
 
-function App() {
+function App(props) {
 
     return (
         <BrowserRouter>
@@ -22,7 +22,7 @@ function App() {
                         <Routes>
                             <Route path='/' element={<Profile/>}/>
                             <Route path='/profile/*' element={<Profile/>}/>
-                            <Route path='/chat/*' element={<Chat/>}/>
+                            <Route path='/chat/*' element={<Chat messages={props.data.messages} names={props.data.names}/>}/>
                             <Route path='/news/*' element={<News/>}/>
                             <Route path='/music/*' element={<Music/>}/>
                             <Route path='/settings/*' element={<Settings/>}/>

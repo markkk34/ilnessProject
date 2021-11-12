@@ -3,17 +3,19 @@ import Messages from "../Chat/Messages/Messages";
 import chatStyles from "./Chat.module.css"
 import {Route, Routes} from "react-router-dom";
 
-const Chat = () => {
+const Chat = (props) => {
+    let dialogueElements = props.names.map(
+        dialogue => <Dialogue name={dialogue.name} id={dialogue.id}/>
+    );
+
     return (
         <div className={chatStyles.chat}>
             <div className={chatStyles.dialogues}>
-                <Dialogue name='Mark' id='1'/>
-                <Dialogue name='Kolya' id='2'/>
-                <Dialogue name='Vitality' id='3'/>
+                {dialogueElements}
             </div>
             <div className={chatStyles.messages}>
                 <Routes>
-                    <Route path='/Mark' element={<Messages/>}/>
+                    <Route path='/Mark' element={<Messages messages={props.messages}/>}/>
                 </Routes>
             </div>
         </div>
