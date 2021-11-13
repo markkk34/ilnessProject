@@ -20,9 +20,22 @@ function App(props) {
                     <Navigation/>
                     <div className='content'>
                         <Routes>
-                            <Route path='/' element={<Profile/>}/>
-                            <Route path='/profile/*' element={<Profile/>}/>
-                            <Route path='/chat/*' element={<Chat messages={props.data.messages} names={props.data.names}/>}/>
+                            <Route path='/' element={<Profile
+                                posts={props.data.profilePage.posts}
+                                addPost={props.addPost}
+                                newPostText={props.data.profilePage.newPostText}
+                                updateNewPostText={props.updateNewPostText}
+                            />}/>
+                            <Route path='/profile/*' element={<Profile
+                                posts={props.data.profilePage.posts}
+                                addPost={props.addPost}
+                                newPostText={props.data.profilePage.newPostText}
+                                updateNewPostText={props.updateNewPostText}
+                            />}/>
+                            <Route path='/chat/*' element={<Chat
+                                messages={props.data.chatPage.messages}
+                                names={props.data.names}
+                            />}/>
                             <Route path='/news/*' element={<News/>}/>
                             <Route path='/music/*' element={<Music/>}/>
                             <Route path='/settings/*' element={<Settings/>}/>

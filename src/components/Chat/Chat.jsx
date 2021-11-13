@@ -10,6 +10,10 @@ const Chat = (props) => {
 
     return (
         <div className={chatStyles.chat}>
+            <div>
+                <textarea/>
+                <button type={"submit"}>send mssg</button>
+            </div>
             <div className={chatStyles.dialogues}>
                 {dialogueElements}
             </div>
