@@ -1,5 +1,3 @@
-import renderEntireTree from "../Render";
-
 let names = [
     {name: 'Mark', id: 1},
     {name: 'Kolya', id: 2},
@@ -15,30 +13,44 @@ let posts = [
     {post: 'let me go', id: 2},
 ]
 
-let data = {
-    profilePage : {
-        names: names,
-        posts: posts,
-        newPostText: 'kamario',
+let store = {
+    _data: {
+        profilePage : {
+            names: names,
+            posts: posts,
+            newPostText: 'kamario',
+        },
+        chatPage: {
+            messages,
+        },
     },
-    chatPage: {
-        messages,
+    getData()
+    {
+        return this._data;
     },
-};
+    _callSubscriber()
+    {
+        console.log('Kamario');
+    },
+    addPost(post)
+    {
+        let temp = {
+            post: post.post, id: 3
+        };
 
-export let addPost = (post) =>
-{
-    let temp = {
-        post: post.post, id: 3
-    };
-    data.profilePage.posts.push(temp);
-    renderEntireTree(data);
+        this._data.profilePage.posts.push(temp);
+        this._callSubscriber(this._data);
+    },
+    updateNewPostText(newText)
+    {
+        this._data.profilePage.newPostText = newText;
+        this._callSubscriber(this._data);
+    },
+    subscribe(observer)
+    {
+        this._callSubscriber = observer;
+    }
+
 }
 
-export let updateNewPostText = (newText) =>
-{
-    data.profilePage.newPostText = newText;
-    renderEntireTree(data);
-}
-
-export default data;
+export default store;

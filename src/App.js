@@ -34,7 +34,7 @@ function App(props) {
                             />}/>
                             <Route path='/chat/*' element={<Chat
                                 messages={props.data.chatPage.messages}
-                                names={props.data.names}
+                                names={props.data.profilePage.names}
                             />}/>
                             <Route path='/news/*' element={<News/>}/>
                             <Route path='/music/*' element={<Music/>}/>
