@@ -22,15 +22,13 @@ function App(props) {
                         <Routes>
                             <Route path='/' element={<Profile
                                 posts={props.data.profilePage.posts}
-                                addPost={props.addPost}
                                 newPostText={props.data.profilePage.newPostText}
-                                updateNewPostText={props.updateNewPostText}
+                                dispatch={props.dispatch}
                             />}/>
                             <Route path='/profile/*' element={<Profile
                                 posts={props.data.profilePage.posts}
-                                addPost={props.addPost}
                                 newPostText={props.data.profilePage.newPostText}
-                                updateNewPostText={props.updateNewPostText}
+                                dispatch={props.dispatch}
                             />}/>
                             <Route path='/chat/*' element={<Chat
                                 messages={props.data.chatPage.messages}

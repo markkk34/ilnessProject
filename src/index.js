@@ -8,7 +8,10 @@ import App from "./App";
 let renderEntireTree = () => {
     ReactDOM.render(
         <React.StrictMode>
-            <App data={store.getData()} addPost={store.addPost.bind(store)} updateNewPostText={store.updateNewPostText.bind(store)}/>
+            <App
+                data={store.getData()}
+                dispatch={store.dispatch.bind(store)}
+            />
         </React.StrictMode>,
         document.getElementById('root')
     );
