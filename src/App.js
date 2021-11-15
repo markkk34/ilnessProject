@@ -33,6 +33,8 @@ function App(props) {
                             <Route path='/chat/*' element={<Chat
                                 messages={props.data.chatPage.messages}
                                 names={props.data.profilePage.names}
+                                newMessageText={props.data.chatPage.newMessageText}
+                                dispatch={props.dispatch}
                             />}/>
                             <Route path='/news/*' element={<News/>}/>
                             <Route path='/music/*' element={<Music/>}/>
