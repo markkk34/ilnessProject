@@ -8,10 +8,10 @@ import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import {BrowserRouter, Route, Routes,} from "react-router-dom";
 import Chat from "./components/Chat/Chat";
+import ChatContainer from "./components/Chat/ChatContainer";
 
 
 function App(props) {
-
     return (
         <BrowserRouter>
             <div className="App">
@@ -21,20 +21,13 @@ function App(props) {
                     <div className='content'>
                         <Routes>
                             <Route path='/' element={<Profile
-                                posts={props.data.profilePage.posts}
-                                newPostText={props.data.profilePage.newPostText}
-                                dispatch={props.dispatch}
+                                store={props.store}
                             />}/>
                             <Route path='/profile/*' element={<Profile
-                                posts={props.data.profilePage.posts}
-                                newPostText={props.data.profilePage.newPostText}
-                                dispatch={props.dispatch}
+                                store={props.store}
                             />}/>
-                            <Route path='/chat/*' element={<Chat
-                                messages={props.data.chatPage.messages}
-                                names={props.data.profilePage.names}
-                                newMessageText={props.data.chatPage.newMessageText}
-                                dispatch={props.dispatch}
+                            <Route path='/chat/*' element={<ChatContainer
+                                store={props.store}
                             />}/>
                             <Route path='/news/*' element={<News/>}/>
                             <Route path='/music/*' element={<Music/>}/>

@@ -14,12 +14,12 @@ const Chat = (props) => {
 
     let onUpdateMessage = () =>
     {
-        props.dispatch(updateMessageActionCreator(message.current.value));
+        props.onUpdateMessage(message);
     }
 
     let addMessage = () =>
     {
-        props.dispatch(addMessageActionCreator(message.current.value));
+        props.addMessage(message);
     }
 
     return (

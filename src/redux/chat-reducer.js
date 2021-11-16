@@ -1,7 +1,18 @@
 const ADD_MESSAGE = 'ADD-MESSAGE';
 const UPDATE_MESSAGE = 'UPDATE-MESSAGE';
 
-const chatReducer = (state, action) =>
+let messages = [
+    {message: 'message 1'},
+    {message: 'message 2'},
+    {message: 'message 3'},
+];
+
+let initialState = {
+    messages: messages,
+    newMessageText: 'mario',
+};
+
+const chatReducer = (state = initialState, action) =>
 {
     switch (action.type) {
         case ADD_MESSAGE:

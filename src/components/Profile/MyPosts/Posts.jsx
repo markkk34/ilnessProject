@@ -5,10 +5,9 @@ import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../red
 const Posts = (props) =>
 {
     let text = React.createRef();
-    let addPost = () =>
+    let onAddPost = () =>
     {
-        //props.addPost({post: text.current.value});
-        props.dispatch(addPostActionCreator(text.current.value));
+        props.onAddPost(text);
     }
 
     let postElements = props.posts.map(
@@ -17,14 +16,13 @@ const Posts = (props) =>
 
     let onChangeAddPost = () =>
     {
-        //props.updateNewPostText(text.current.value);
-        props.dispatch(updateNewPostTextActionCreator(text.current.value));
+        props.onChangeAddPost(text);
     }
 
     return (
         <div className='account-info'>
             <textarea ref={text} value={props.newPostText} onChange={onChangeAddPost}/>
-            <button type={"submit"} onClick={addPost}>Post</button>
+            <button type={"submit"} onClick={onAddPost}>Post</button>
             {postElements}
         </div>
     );
