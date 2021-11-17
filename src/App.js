@@ -20,15 +20,9 @@ function App(props) {
                     <Navigation/>
                     <div className='content'>
                         <Routes>
-                            <Route path='/' element={<Profile
-                                store={props.store}
-                            />}/>
-                            <Route path='/profile/*' element={<Profile
-                                store={props.store}
-                            />}/>
-                            <Route path='/chat/*' element={<ChatContainer
-                                store={props.store}
-                            />}/>
+                            <Route path='/' element={<Profile/>}/>
+                            <Route path='/profile/*' element={<Profile/>}/>
+                            <Route path='/chat/*' element={<ChatContainer/>}/>
                             <Route path='/news/*' element={<News/>}/>
                             <Route path='/music/*' element={<Music/>}/>
                             <Route path='/settings/*' element={<Settings/>}/>

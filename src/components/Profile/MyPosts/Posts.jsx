@@ -4,6 +4,7 @@ import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../red
 
 const Posts = (props) =>
 {
+    console.log(123321)
     let text = React.createRef();
     let onAddPost = () =>
     {

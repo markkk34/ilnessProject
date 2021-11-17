@@ -5,26 +5,30 @@ import {Route, Routes} from "react-router-dom";
 import React from "react";
 import {addMessageActionCreator, updateMessageActionCreator} from "../../redux/chat-reducer";
 import Chat from "./Chat";
+import StoreContext from "../../StoreContext";
 
 const ChatContainer = (props) => {
-    let onUpdateMessage = (message) =>
-    {
-        props.store.dispatch(updateMessageActionCreator(message.current.value));
-    }
-
-    let addMessage = (message) =>
-    {
-        props.store.dispatch(addMessageActionCreator(message.current.value));
-    }
-
     return (
-        <Chat
-            onUpdateMessage={onUpdateMessage}
-            addMessage={addMessage}
-            newMessageText={props.store.getState().chatPage.newMessageText}
-            messages={props.store.getState().chatPage.messages}
-            names={props.store.getState().profilePage.names}
-        />
+        <StoreContext.Consumer>
+            {(store) => {
+                let onUpdateMessage = (message) =>
+                {
+                    store.dispatch(updateMessageActionCreator(message.current.value));
+                }
+
+                let addMessage = (message) =>
+                {
+                    store.dispatch(addMessageActionCreator(message.current.value));
+                }
+                return (<Chat
+                    onUpdateMessage={onUpdateMessage}
+                    addMessage={addMessage}
+                    newMessageText={store.getState().chatPage.newMessageText}
+                    messages={store.getState().chatPage.messages}
+                    names={store.getState().profilePage.names}
+                />)
+            }}
+        </StoreContext.Consumer>
     );
 }
 
