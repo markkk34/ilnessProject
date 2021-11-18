@@ -24,18 +24,20 @@ const profileReducer = (state = initialState, action) =>
             let temp = {
                 post: action.post, id: 3
             };
+            return {
+                ...state,
+                posts: [...state.posts, temp,],
+            };
 
-            state.posts.push(temp);
-            break;
         case UPDATE_NEW_POST_TEXT:
-            state.newPostText = action.text;
-            break;
+            return {
+                ...state,
+                newPostText: action.text,
+            }
 
         default:
             return state;
     }
-
-    return state;
 }
 
 export default profileReducer;

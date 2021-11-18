@@ -16,18 +16,20 @@ const chatReducer = (state = initialState, action) =>
 {
     switch (action.type) {
         case ADD_MESSAGE:
-            state.messages.push({message: action.message});
-            break;
+            return {
+                ...state,
+                messages: [...state.messages, {message: action.message},],
+            };
 
         case UPDATE_MESSAGE:
-            state.newMessageText = action.message;
-            break;
+            return {
+                ...state,
+                newMessageText: action.message,
+            };
 
         default:
             return state;
     }
-
-    return state;
 }
 
 export default chatReducer;

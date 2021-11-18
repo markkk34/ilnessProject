@@ -1,35 +1,30 @@
-import Dialogue from "./Dialogue/Dialogue";
-import Messages from "../Chat/Messages/Messages";
-import chatStyles from "./Chat.module.css"
-import {Route, Routes} from "react-router-dom";
 import React from "react";
 import {addMessageActionCreator, updateMessageActionCreator} from "../../redux/chat-reducer";
 import Chat from "./Chat";
-import StoreContext from "../../StoreContext";
+import {connect} from "react-redux";
 
-const ChatContainer = (props) => {
-    return (
-        <StoreContext.Consumer>
-            {(store) => {
-                let onUpdateMessage = (message) =>
-                {
-                    store.dispatch(updateMessageActionCreator(message.current.value));
-                }
-
-                let addMessage = (message) =>
-                {
-                    store.dispatch(addMessageActionCreator(message.current.value));
-                }
-                return (<Chat
-                    onUpdateMessage={onUpdateMessage}
-                    addMessage={addMessage}
-                    newMessageText={store.getState().chatPage.newMessageText}
-                    messages={store.getState().chatPage.messages}
-                    names={store.getState().profilePage.names}
-                />)
-            }}
-        </StoreContext.Consumer>
-    );
+let mapStateToProps = (state) =>
+{
+    return {
+        newMessageText: state.chatPage.newMessageText,
+        messages: state.chatPage.messages,
+        names: state.profilePage.names,
+    };
 }
 
-export default ChatContainer;
+let mapDispatchToProps = (dispatch) =>
+{
+    return {
+        onUpdateMessage: (message) =>
+        {
+            dispatch(updateMessageActionCreator(message.current.value));
+        },
+        addMessage: (message) => {
+            dispatch(addMessageActionCreator(message.current.value));
+        },
+    };
+}
+
+const SuperChatContainer = connect(mapStateToProps, mapDispatchToProps)(Chat);
+
+export default SuperChatContainer;

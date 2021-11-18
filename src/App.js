@@ -9,6 +9,7 @@ import Music from "./components/Music/Music";
 import {BrowserRouter, Route, Routes,} from "react-router-dom";
 import Chat from "./components/Chat/Chat";
 import ChatContainer from "./components/Chat/ChatContainer";
+import SuperChatContainer from "./components/Chat/ChatContainer";
 
 
 function App(props) {
@@ -22,7 +23,7 @@ function App(props) {
                         <Routes>
                             <Route path='/' element={<Profile/>}/>
                             <Route path='/profile/*' element={<Profile/>}/>
-                            <Route path='/chat/*' element={<ChatContainer/>}/>
+                            <Route path='/chat/*' element={<SuperChatContainer/>}/>
                             <Route path='/news/*' element={<News/>}/>
                             <Route path='/music/*' element={<Music/>}/>
                             <Route path='/settings/*' element={<Settings/>}/>
